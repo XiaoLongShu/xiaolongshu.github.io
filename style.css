@@ -93,7 +93,7 @@ nav a {
 .hero {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 110px 24px 120px;
+    padding: 120px 24px 96px;
 }
 
 .eyebrow {
@@ -104,10 +104,10 @@ nav a {
 }
 
 .hero h1 {
-    margin: 12px 0;
-    font-size: clamp(2.7rem, 7vw, 5.4rem);
-    line-height: 1.2;
-    letter-spacing: -3px;
+    margin: 16px 0;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 1.16;
+    letter-spacing: -2.5px;
 }
 
 .hero h1 span {
@@ -115,10 +115,11 @@ nav a {
 }
 
 .intro {
-    max-width: 600px;
+    max-width: 620px;
     margin: 24px 0 32px;
     color: var(--muted);
-    font-size: 1.1rem;
+    font-size: 1.08rem;
+    line-height: 1.9;
 }
 
 .primary-button {
@@ -128,6 +129,39 @@ nav a {
     background: var(--accent);
     color: white;
     font-weight: 700;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.secondary-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    transition:
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.secondary-button:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.hero-note {
+    margin-top: 52px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 
 .section {
@@ -182,6 +216,137 @@ nav a {
     margin-bottom: 0;
     color: var(--muted);
     font-size: 0.94rem;
+}
+
+/* Minecraft 作品集 */
+.section-intro {
+    max-width: 680px;
+    margin: 12px 0 28px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* Minecraft 特色作品：图片与介绍左右布局 */
+.featured-project {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
+    margin: 32px 0;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+}
+
+.featured-image {
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--background);
+}
+
+.featured-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.featured-content h3 {
+    margin: 12px 0;
+    color: var(--text);
+    font-size: 1.7rem;
+    line-height: 1.4;
+}
+
+.featured-content > p:not(.project-number) {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.project-tags span {
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+/* 平板及较窄的桌面屏幕 */
+@media (max-width: 900px) {
+    .featured-project {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .minecraft-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.minecraft-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.minecraft-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease;
+}
+
+.minecraft-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.minecraft-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--background);
+}
+
+.minecraft-card-content {
+    padding: 20px;
+}
+
+.card-category {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.minecraft-card h3 {
+    margin: 0 0 10px;
+    color: var(--text);
+}
+
+.minecraft-card-content > p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* 手机屏幕改为单列 */
+@media (max-width: 700px) {
+    .minecraft-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact {
