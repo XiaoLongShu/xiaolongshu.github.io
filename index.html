@@ -15,6 +15,14 @@
             <a href="#projects">我的项目</a>
             <a href="#contact">联系</a>
         </nav>
+        <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="切换网页主题"
+>
+    🌙 深色模式
+</button>
     </header>
 
     <main>
@@ -72,5 +80,44 @@
     <footer>
         <p>© 2026 XiaoLongShu · 用好奇心探索世界。</p>
     </footer>
+    <script>
+    const themeToggle = document.querySelector("#theme-toggle");
+
+    // 读取之前保存的主题
+    const savedTheme = localStorage.getItem("theme");
+
+    // 获取设备当前的深浅色偏好
+    const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+    ).matches;
+
+    // 有保存记录就使用保存的主题，否则采用设备偏好
+    let currentTheme = savedTheme || (prefersDark ? "dark" : "light");
+
+    // 应用主题并更新按钮文字
+    function applyTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+
+        themeToggle.textContent =
+            theme === "dark" ? "☀️ 浅色模式" : "🌙 深色模式";
+
+        themeToggle.setAttribute(
+            "aria-pressed",
+            String(theme === "dark")
+        );
+    }
+
+    // 页面加载时应用主题
+    applyTheme(currentTheme);
+
+    // 点击按钮后切换主题
+    themeToggle.addEventListener("click", () => {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+
+        localStorage.setItem("theme", currentTheme);
+
+        applyTheme(currentTheme);
+    });
+</script>
 </body>
 </html>

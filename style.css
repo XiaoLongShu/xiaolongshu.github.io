@@ -1,3 +1,4 @@
+
 :root {
     color-scheme: light;
     --background: #f7f9fc;
@@ -7,6 +8,18 @@
     --accent: #3269d8;
     --border: #e3e9f2;
 }
+
+/* 深色主题：当 html 元素拥有 data-theme="dark" 时生效 */
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --background: #111827;
+    --surface: #1e293b;
+    --text: #e5edf8;
+    --muted: #a7b4c8;
+    --accent: #82aaff;
+    --border: #334155;
+}
+
 
 * {
     box-sizing: border-box;
@@ -39,7 +52,26 @@ a {
     justify-content: space-between;
     gap: 20px;
 }
+.theme-toggle {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
 
+.theme-toggle:hover {
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
 .logo {
     color: var(--text);
     font-size: 1.15rem;
